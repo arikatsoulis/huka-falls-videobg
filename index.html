@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Huka Video</title>
+	<link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+	<style>
+	body{
+			background-color: black;
+			overflow: hidden;
+		}
+
+	video#bgvid { 
+	    position: fixed;
+	    top: 50%;
+	    left: 50%;
+	    min-width: 100%;
+	    min-height: 100%;
+	    width: auto;
+	    height: auto;
+	    z-index: -100;
+	    -ms-transform: translateX(-50%) translateY(-50%);
+	    -moz-transform: translateX(-50%) translateY(-50%);
+	    -webkit-transform: translateX(-50%) translateY(-50%);
+	    transform: translateX(-50%) translateY(-50%);
+	    background: url(polina.jpg) no-repeat;
+	    background-size: cover; 
+	    
+	}
+
+	img {
+		position: fixed;
+		margin: 0 auto;
+		margin-top: 40%;
+	}
+
+	.button-fly, .button-sound {
+		width: 220px;
+		height: 50px;
+		border: 1px solid white;
+		color: white;
+		font-size: 26px;
+		text-align: center;
+		padding-top: 22px;
+		padding-left: 20px;
+		padding-right: 20px;
+		font-family: 'Lato', sans-serif;
+		
+	}
+
+	.audio {
+		position: absolute;
+		display: block;
+		margin-left: 30%;
+		margin-top: 650px;
+	}
+
+
+
+	.button-fly:hover, .button-sound:hover{
+		cursor: pointer;
+
+	}
+
+	.button {
+		position: absolute;
+		display: block;
+		margin-left: 50%;
+		margin-top: 650px;
+	}
+
+
+	img {
+		position: absolute;
+		display: block;
+		margin-top: -219px;
+        margin-left: 140px;
+
+	}
+
+	.hidden {
+		visibility: hidden;
+	}
+
+	h1{
+		position: absolute;
+		top: 30%;
+		text-align: center;
+		width: 100%;
+		color: white;
+		font-size: 5em;
+		font-family: 'Amatic SC', cursive;
+		letter-spacing: .1em;
+		-webkit-animation: bigger 10s forwards; 
+		-moz-animation:    bigger 10s forwards; 
+		-o-animation:      bigger 10s forwards; 
+		animation:         bigger 10s forwards;
+	}
+
+
+	@-webkit-keyframes bigger {
+	  0%   { transform: scale(1,1); opacity: .8}
+	  100% { transform: scale(3,3); opacity: .2; }
+	}
+
+	</style>
+</head>
+<body>
+
+
+	<video autoplay loop muted id="bgvid">
+
+		<source src="video/huka.mp4" type="video/mp4">
+		
+
+	</video>
+
+	<h1>Huka Falls</h1>
+
+    <div class="button">
+		<div class="button-fly">
+			FLY ON OVER
+		</div>
+		<img id="birdId" class="hidden" src="img/bird.gif" alt="">
+
+	</div>
+
+	<div class="audio">
+		<div class="button-sound">
+			LISTEN TO HUKA
+		</div>
+	</div>
+
+
+
+	<audio>
+		<source id="soundeffect" src="audio/waterfall.mp3">
+	</audio>
+	 
+    
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script>
+
+var noisey = new Audio('audio/bird.wav');
+var water = new Audio('audio/waterfall.mp3');
+
+
+
+function listentothewaves(){
+
+	var waterr = $(".button-sound")[0];
+	$(".button-sound")
+		.mouseover(function() {
+			water.play();
+	});
+} 
+
+listentothewaves()
+
+
+
+
+var birdy = function(){
+
+	$('.button-fly').mouseover(
+   function(){ $('#birdId').removeClass('hidden') 
+    });
+
+
+    var birdeffect = $("#birdeffect")[0];
+    $(".button-fly")
+    	.mouseover(function() {
+    		noisey.play();
+    });
+
+}();
+
+
+
+
+
+
+
+
+
+       
+
+	</script>	
+</body>
+</html>
